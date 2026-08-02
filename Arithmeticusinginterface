@@ -1,0 +1,42 @@
+package SimpleCalculator;
+
+interface Calculator {
+    void add(double a, double b);
+    void subtract(double a, double b);
+    void multiply(double a, double b);
+    void divide(double a, double b);
+}
+
+class SimpleCalculator implements Calculator {
+
+    public void add(double a, double b) {
+        System.out.println("Addition = " + (a + b));
+    }
+
+    public void subtract(double a, double b) {
+        System.out.println("Subtraction = " + (a - b));
+    }
+
+    public void multiply(double a, double b) {
+        System.out.println("Multiplication = " + (a * b));
+    }
+
+    public void divide(double a, double b) {
+        if (b != 0)
+            System.out.println("Division = " + (a / b));
+        else
+            System.out.println("Division by zero is not allowed.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+
+        Calculator calc = new SimpleCalculator();
+
+        calc.add(25, 35);
+        calc.subtract(45, 56);
+        calc.multiply(22, 78);
+        calc.divide(23, 10);
+    }
+}
