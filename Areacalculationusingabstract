@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+abstract class Shape {
+    abstract void printArea();
+}
+
+class Rectangle extends Shape {
+    int l, b;
+
+    Rectangle(int l, int b) {
+        this.l = l;
+        this.b = b;
+    }
+
+    void printArea() {
+        System.out.println("Area of Rectangle = " + (l * b));
+    }
+}
+
+class Triangle extends Shape {
+    int base, height;
+
+    Triangle(int base, int height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    void printArea() {
+        System.out.println("Area of Triangle = " + (0.5 * base * height));
+    }
+}
+
+class Circle extends Shape {
+    int r;
+
+    Circle(int r) {
+        this.r = r;
+    }
+
+    void printArea() {
+        System.out.println("Area of Circle = " + (3.14 * r * r));
+    }
+}
+
+public class AreaCalculation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Shape: ");
+        String shape = sc.nextLine();
+
+        if (shape.equalsIgnoreCase("Rectangle")) {
+            System.out.print("Length: ");
+            int l = sc.nextInt();
+            System.out.print("Breadth: ");
+            int b = sc.nextInt();
+            Rectangle r = new Rectangle(l, b);
+            r.printArea();
+        }
+        else if (shape.equalsIgnoreCase("Triangle")) {
+            System.out.print("Base: ");
+            int base = sc.nextInt();
+            System.out.print("Height: ");
+            int height = sc.nextInt();
+            Triangle t = new Triangle(base, height);
+            t.printArea();
+        }
+        else if (shape.equalsIgnoreCase("Circle")) {
+            System.out.print("Radius: ");
+            int r = sc.nextInt();
+            Circle c = new Circle(r);
+            c.printArea();
+        }
+        else {
+            System.out.println("Invalid Shape");
+        }
+
+        sc.close();
+    }
+}
+        
