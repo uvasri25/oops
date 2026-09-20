@@ -1,0 +1,21 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+class FileCopy {
+    public static void main(String[] args) throws Exception {
+
+        FileInputStream in = new FileInputStream("input.txt");
+        FileOutputStream out = new FileOutputStream("output.txt");
+
+        int ch;
+
+        while ((ch = in.read()) != -1) {
+            out.write(ch);
+        }
+
+        in.close();
+        out.close();
+
+        System.out.println("Content copied successfully into the output file");
+    }
+}
